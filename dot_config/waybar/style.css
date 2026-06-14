@@ -1,0 +1,148 @@
+@define-color fg #d8dee9;
+@define-color muted #8b95a6;
+@define-color bg #171b22;
+@define-color border #2a313d;
+@define-color hover #242d3a;
+@define-color accent-soft #303a4a;
+@define-color ok #9bd47f;
+@define-color warning #e8c07d;
+@define-color critical #f28b82;
+@define-color critical-soft #3a1f24;
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Symbols Nerd Font", "Symbols Nerd Font Mono", "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: @fg;
+}
+
+#workspaces {
+  background: @bg;
+  border: 1px solid @border;
+  border-radius: 999px;
+  margin: 1px 8px 1px 10px;
+  min-height: 24px;
+  padding: 0;
+}
+
+#workspaces button {
+  color: @muted;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 999px;
+  font-size: 13px;
+  margin: 0;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0;
+}
+
+#workspaces button label {
+  margin-top: 0;
+}
+
+#workspaces button.active {
+  background: #ffffff;
+  border: none;
+  color: @bg;
+  text-shadow: none;
+}
+
+#workspaces button.active:hover {
+  background: #ffffff;
+  color: @bg;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  color: #f2f6ff;
+}
+
+#language,
+#custom-mpris,
+#pulseaudio,
+#custom-cpu,
+#custom-memory,
+#battery,
+#tray,
+#clock,
+#custom-exit {
+  background: @bg;
+  border: 1px solid @border;
+  border-radius: 999px;
+  color: @fg;
+  margin: 1px 0 1px 8px;
+  min-height: 24px;
+  padding: 0 12px;
+}
+
+#custom-exit {
+  color: @critical;
+  margin-right: 10px;
+  min-width: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+#custom-cpu {
+  margin-right: 0;
+  border-right: none;
+  border-radius: 999px 0 0 999px;
+  padding-right: 10px;
+}
+
+#custom-memory {
+  margin-left: 0;
+  border-radius: 0 999px 999px 0;
+  padding-left: 10px;
+}
+
+#tray {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#custom-mpris {
+  min-width: 220px;
+  font-size: 13px;
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+}
+
+#pulseaudio.muted,
+#pulseaudio.zero,
+#battery.warning {
+  color: @critical;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @ok;
+}
+
+#battery.critical:not(.charging) {
+  background: @critical-soft;
+  color: @critical;
+}
+
+tooltip {
+  background: @bg;
+  border: 1px solid @border;
+  border-radius: 6px;
+  color: @fg;
+  padding: 10px 12px;
+}
+
+tooltip label {
+  color: @fg;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+}
