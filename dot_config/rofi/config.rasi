@@ -1,0 +1,143 @@
+
+configuration {
+    modi: "drun,";
+    show-icons: true;
+    display-drun: "Apps";
+    display-browser: "Browser";
+    sidebar-mode: true;
+    disable-history: false;
+}
+
+* {
+    fg: #a8b2c2;
+    muted: #6f7a8d;
+    bg: #10141b;
+    border: #1d2531;
+    hover: #1e2735;
+    accent-soft: #151c27;
+    accent-deep: #121924;
+    ok: #6f9468;
+    warning: #9d825b;
+    critical: #ad6965;
+    critical-soft: #26171a;
+
+    background-color: transparent;
+    text-color: @fg;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    width: 42%;
+    location: center;
+    anchor: center;
+    background-color: @bg;
+    border: 1px;
+    border-color: @border;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 8px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @bg;
+    border: 1px;
+    border-color: @border;
+    border-radius: 8px;
+    padding: 8px 10px;
+    spacing: 8px;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @muted;
+    str: "";
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    placeholder-color: @muted;
+    placeholder: "Search...";
+}
+
+message {
+    background-color: @critical-soft;
+    border: 1px;
+    border-color: @critical;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: #c7918d;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    markup: true;
+}
+
+listview {
+    background-color: @bg;
+    columns: 1;
+    lines: 10;
+    cycle: true;
+    dynamic: true;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 4px;
+}
+
+element {
+    background-color: @accent-soft;
+    text-color: @fg;
+    border-radius: 8px;
+    padding: 7px 8px;
+    spacing: 10px;
+}
+
+element normal normal {
+    background-color: @accent-soft;
+    text-color: @fg;
+}
+
+element alternate normal {
+    background-color: @accent-deep;
+    text-color: @fg;
+}
+
+element normal active {
+    text-color: @ok;
+}
+
+element selected normal,
+element selected active {
+    background-color: @hover;
+    text-color: #bac5d6;
+}
+
+element-text,
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element-icon {
+    size: 20px;
+}
+
+mode-switcher {
+    enabled: false;
+}
+
+error-message {
+    background-color: @critical-soft;
+    border: 1px;
+    border-color: @critical;
+    border-radius: 8px;
+    padding: 14px;
+}
