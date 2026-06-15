@@ -55,7 +55,7 @@ hl.bind(MAIN_MOD .. " + SHIFT + 0", hl.dsp.window.move({ workspace = "10" }))
 hl.bind(MAIN_MOD .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(MAIN_MOD .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-hl.bind(MAIN_MOD .. " + SHIFT + Page_Up", hl.dsp.exec_cmd("hyprshot -m window -s --freeze"))
+--hl.bind(MAIN_MOD .. " + SHIFT + Page_Up", hl.dsp.exec_cmd("hyprshot -m window -s --freeze"))
 --hl.bind(MAIN_MOD .. " + SHIFT + Page_Up", hl.dsp.exec_cmd("grim -g \"$(slurp -o -r -c '##ff0000ff')\" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png"))
 hl.bind(MAIN_MOD .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region -s --freeze"))
 --hl.bind(MAIN_MOD .. " + SHIFT + D", hl.dsp.exec_cmd("TEMP=/tmp/satty-$(date +%s).png && grimblast --freeze copysave area ~/Pictures/Screenshots/$(date +'%y%m%d_%Hh%Mm%Ss')_screenshot.png && wl-paste > $TEMP && satty --filename $TEMP --copy-command wl-copy && rm $TEMP"))
