@@ -150,7 +150,7 @@ hl.config({
 
 MAIN_MOD = "SUPER"
 TERMINAL = "ghostty"
-FILE_MANAGER = "thunar"
+FILE_MANAGER = "nemo"
 BROWSER = "zen-browser"
 MENU = "vicinae vicinae://toggle"
 PROXY = "/home/infy/Throne/Throne"

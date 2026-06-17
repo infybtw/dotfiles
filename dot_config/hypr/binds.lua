@@ -11,6 +11,7 @@ hl.bind(MAIN_MOD .. " + O", hl.dsp.exec_cmd("ghostty -e /home/satont/.opencode/b
 hl.bind(MAIN_MOD .. " + W", hl.dsp.exec_cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid"))
 hl.bind(MAIN_MOD .. " + P", hl.dsp.exec_cmd(PROXY))
 hl.bind(MAIN_MOD .. " + B", hl.dsp.exec_cmd(BROWSER))
+hl.bind(MAIN_MOD .. " + N", hl.dsp.exec_cmd("swaync-client -t"))
 
 
 hl.bind(MAIN_MOD .. " + left", hl.dsp.focus({ direction = "left" }))
