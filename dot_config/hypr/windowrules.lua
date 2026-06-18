@@ -212,3 +212,10 @@ hl.window_rule({
   match = { class = "com.mitchellh.ghostty" },
   no_blur = true,
 })
+
+hl.window_rule({
+    name = "loupe-float",
+    float = true,
+    size = "(monitor_w*0.5) (monitor_h*0.5)",
+    match = { class = "org.gnome.Loupe" },
+})

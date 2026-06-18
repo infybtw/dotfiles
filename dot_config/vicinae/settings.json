@@ -28,9 +28,9 @@
    ],
    "providers": {
       "@sovereign/store.vicinae.awww-switcher": {
-         "enabled": false,
+         "enabled": true,
          "preferences": {
-            "wallpaperPath": "/home/infy/wallpapers",
+            "wallpaperPath": "/home/infy/Wallpapers",
             "colorGenTool": "none",
             "gridRows": "4",
             "postProduction": "no",
