@@ -219,3 +219,10 @@ hl.window_rule({
     size = "(monitor_w*0.5) (monitor_h*0.5)",
     match = { class = "org.gnome.Loupe" },
 })
+hl.window_rule({
+    name = "mpv-float",
+    float = true,
+    size = "(monitor_w*0.5) (monitor_h*0.5)",
+    match = { class = "mpv" },
+})
+

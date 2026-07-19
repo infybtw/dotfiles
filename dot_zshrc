@@ -102,18 +102,16 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias hconfig="cd /home/infy/.config/hypr/"
-alias zshconfig="micro /home/infy/.zshrc"
-alias dwaybar="hyprctl dispatch exec waybar"
-alias toolbox-fix="hyprctl dispatch movewindowpixel exact 100 100,class:jetbrains-toolbox"
 alias cf="cd /home/infy/.local/share/chezmoi"
+alias cu="chezmoi re-add"
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/infy/.lmstudio/bin"
-# End of LM Studio CLI section
+alias l='eza -lh --icons=auto --no-permissions' # long list
+alias ls='eza -1 --icons=auto --no-permissions' # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first --no-permissions' # long list all
+alias ld='eza -lhD --icons=auto --no-permissions' # long list dirs
+alias lt='eza --icons=auto --tree --no-permissions' # list folder as tree
 
-
-export PATH=$PATH:/home/infy/.spicetify
+alias bat="bat --style=plain"
 
 # bun completions
 [ -s "/home/infy/.bun/_bun" ] && source "/home/infy/.bun/_bun"
@@ -121,3 +119,8 @@ export PATH=$PATH:/home/infy/.spicetify
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export EMOJI_FONT="Noto Color Emoji"
+
+# opencode
+export PATH=/home/infy/.opencode/bin:$PATH
+export PATH="/home/infy/.local/bin:$PATH"
