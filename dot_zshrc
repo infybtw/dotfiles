@@ -113,6 +113,8 @@ alias lt='eza --icons=auto --tree --no-permissions' # list folder as tree
 
 alias bat="bat --style=plain"
 
+alias iptest="curl ipinfo.io"
+
 # bun completions
 [ -s "/home/infy/.bun/_bun" ] && source "/home/infy/.bun/_bun"
 
