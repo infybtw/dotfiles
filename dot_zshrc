@@ -115,6 +115,9 @@ alias bat="bat --style=plain"
 
 alias iptest="curl ipinfo.io"
 
+alias frpc="/home/infy/Code/frp/frpc -c /home/infy/Code/frp/frpc.toml"
+alias dcd="docker compose -f docker-compose.dev.yml"
+
 # bun completions
 [ -s "/home/infy/.bun/_bun" ] && source "/home/infy/.bun/_bun"
 
