@@ -5,7 +5,7 @@
   "margin-left": 10,
   "margin-right": 10,
   "height": 22,
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "custom/mpris"],
   "modules-center": ["clock"],
   "modules-right": [
     "hyprland/language",
@@ -34,6 +34,14 @@
       "DP-1": [1, 2, 3, 4, 5, 6],
       "HDMI-A-1": [7, 8,9,10],
     },
+  },
+  "custom/mpris": {
+    "exec": "/home/infy/.config/waybar/scripts/mpris_priority.py --stream",
+    "return-type": "json",
+    "restart-interval": 5,
+    "on-click": "/home/infy/.config/waybar/scripts/mpris_priority.py play-pause",
+    "on-scroll-up": "/home/infy/.config/waybar/scripts/mpris_priority.py next",
+    "on-scroll-down": "/home/infy/.config/waybar/scripts/mpris_priority.py previous",
   },
   "clock": {
     "format": "{:%H:%M:%S}",

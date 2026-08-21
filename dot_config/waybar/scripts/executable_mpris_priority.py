@@ -237,7 +237,7 @@ def build_payload(scroll_state, now):
 
     picked = pick_source(sources)
     if not picked:
-        return {"text": " no media", "tooltip": "No active media sources."}
+        return {"text": "", "tooltip": "", "class": "stopped"}
 
     icon = ICON_BY_PLAYER.get(picked["player_key"], ICON_BY_PLAYER["default"])
     track_key = f"hold5|{picked['player']}|{picked.get('title','')}|{picked.get('artist','')}|{picked.get('status','')}"
@@ -251,7 +251,11 @@ def build_payload(scroll_state, now):
         icon = ICON_BY_PLAYER.get(src["player_key"], ICON_BY_PLAYER["default"])
         tooltip_lines.append(f"{ws_label} {icon} {src['status']}: {ellipsize(src['text'], 64)}")
 
-    return {"text": text, "tooltip": "\n".join(tooltip_lines)}
+    return {
+        "text": text,
+        "tooltip": "\n".join(tooltip_lines),
+        "class": picked["status"].lower(),
+    }
 
 
 def main():

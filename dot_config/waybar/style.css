@@ -117,6 +117,22 @@ window#waybar {
   font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
 }
 
+#custom-mpris.playing {
+  color: @ok;
+}
+
+#custom-mpris.paused {
+  color: @muted;
+}
+
+#custom-mpris.stopped {
+  background: transparent;
+  border: none;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
 #pulseaudio.muted,
 #pulseaudio.zero,
 #battery.warning {
