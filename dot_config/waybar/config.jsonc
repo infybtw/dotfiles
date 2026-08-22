@@ -5,7 +5,7 @@
   "margin-left": 10,
   "margin-right": 10,
   "height": 22,
-  "modules-left": ["hyprland/workspaces", "custom/mpris"],
+  "modules-left": ["hyprland/workspaces", "group/mpris"],
   "modules-center": ["clock"],
   "modules-right": [
     "hyprland/language",
@@ -42,6 +42,20 @@
     "on-click": "/home/infy/.config/waybar/scripts/mpris_priority.py play-pause",
     "on-scroll-up": "/home/infy/.config/waybar/scripts/mpris_priority.py next",
     "on-scroll-down": "/home/infy/.config/waybar/scripts/mpris_priority.py previous",
+  },
+  "group/mpris": {
+    "orientation": "inherit",
+    "modules": ["custom/mpris-previous", "custom/mpris", "custom/mpris-next"],
+  },
+  "custom/mpris-previous": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "/home/infy/.config/waybar/scripts/mpris_priority.py previous",
+  },
+  "custom/mpris-next": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "/home/infy/.config/waybar/scripts/mpris_priority.py next",
   },
   "clock": {
     "format": "{:%H:%M:%S}",

@@ -68,6 +68,8 @@ window#waybar {
 
 #language,
 #custom-mpris,
+#custom-mpris-previous,
+#custom-mpris-next,
 #pulseaudio,
 #custom-cpu,
 #custom-memory,
@@ -115,6 +117,48 @@ window#waybar {
   min-width: 220px;
   font-size: 13px;
   font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+}
+
+#custom-mpris-previous,
+#custom-mpris-next {
+  background: transparent;
+  border: none;
+  color: @muted;
+  margin: 1px 0;
+  min-width: 0;
+  padding: 0;
+  font-size: 0;
+  transition: 150ms ease;
+}
+
+#mpris:hover #custom-mpris-previous,
+#mpris:hover #custom-mpris-next {
+  background: @bg;
+  border: 1px solid @border;
+  min-width: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 13px;
+}
+
+#mpris:hover #custom-mpris-previous {
+  margin-left: 8px;
+  margin-right: 4px;
+}
+
+#mpris:hover #custom-mpris {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#mpris:hover #custom-mpris-next {
+  margin-left: 4px;
+}
+
+#custom-mpris-previous:hover,
+#custom-mpris-next:hover {
+  background: @hover;
+  color: @fg;
 }
 
 #custom-mpris.playing {
