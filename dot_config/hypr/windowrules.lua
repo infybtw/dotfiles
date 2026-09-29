@@ -85,6 +85,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+    name = "chatterino-float",
+    float = true,
+    center = true,
+    size = "(monitor_w*0.35) (monitor_h*0.8)",
+    match = { class = "^com\\.chatterino\\.chatterino$" },
+})
+
+hl.window_rule({
     name = "windowrule-22",
     no_blur = true,
     no_shadow = true,
@@ -225,4 +233,22 @@ hl.window_rule({
     size = "(monitor_w*0.5) (monitor_h*0.5)",
     match = { class = "mpv" },
 })
-
+hl.window_rule({
+    name = "windowrule-helium",
+    float = true,
+    size = "(monitor_w*0.5) (monitor_h*0.5)",
+    match = { class = "helium"},
+})
+hl.window_rule({
+    name = "windowrule-float-bitwarden-by-class",
+    float = true,
+    match = {
+        class = "^chrome-nngceckbapebfimnlniiiahkandclblb-Default$",
+    },
+})
+hl.window_rule({
+    name = "throne-float",
+    float = true,
+    size = "(monitor_w*0.5) (monitor_h*0.5)",
+    match = { class = "^(Throne|throne)$" },
+})
