@@ -96,18 +96,18 @@
       "interval": 1,
     },
     "cpu": {
-      "format": "  {usage}%",
+      "format": " {usage}%",
       "on-click": "ghostty -e btop",
       "interval": 1,
     },
     "memory": {
-      "format": "  {}%",
+      "format": " {}%",
       "on-click": "ghostty -e btop",
       "interval": 1,
     },
     "tray": {
       "icon-size": 15,
-      "spacing": 10,
+      "spacing": 6,
     },
     "pulseaudio": {
       "format": "{icon} <b>{volume}%</b>",
@@ -128,7 +128,7 @@
     },
     "disk": {
       "interval": 5,
-      "format": "{percentage_free}%  ",
+      "format": "{percentage_free}% ",
     },
   },
 ]

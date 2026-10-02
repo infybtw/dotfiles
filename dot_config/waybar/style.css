@@ -94,12 +94,12 @@
 
 #memory {
   color: #fab387;
-  margin-right: 12pt;
+  margin-right: 8pt;
 }
 
 #disk {
   color: #28c9af;
-  margin-right: 12pt;
+  margin-right: 8pt;
 }
 
 #clock {
@@ -108,7 +108,7 @@
 
 #cpu {
   color: #fa8787;
-  margin-right: 12pt;
+  margin-right: 8pt;
 }
 
 #custom-weather {
@@ -117,7 +117,7 @@
 }
 
 #tray {
-  margin-right: 10pt;
+  margin-right: 6pt;
 }
 #tray menu {
   background: #222222;
