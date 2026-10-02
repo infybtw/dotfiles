@@ -47,7 +47,6 @@
     "hyprland/workspaces": {
       "all-outputs": false,
       "format": "{icon}",
-      "on-click": "activate",
       "move-to-monitor": true,
       "format-icons": {
         "active": "",

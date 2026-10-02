@@ -38,22 +38,27 @@
 #workspaces {
   margin-left: 4pt;
 }
-/* #workspaces button { */
-/*   color: #585b70; */
-/* } */
+#workspaces button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  min-width: 18px;
+  min-height: 18px;
+  padding: 0 4pt;
+}
 #workspaces button:not(:first-child) {
   margin-left: 2pt;
 }
-/* #workspaces button.visible { */
-/*   color: #89b4fa; */
-/* } */
-/* #workspaces button.active { */
-/*   color: #f38ba8; */
-/* } */
+#workspaces button.visible {
+  color: #89b4fa;
+}
+#workspaces button.active {
+  color: #f38ba8;
+}
 #workspaces button:hover,
 #workspaces button:focus {
-  background: none;
-  border-color: transparent;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 6pt;
   box-shadow: none;
 }
 /* #workspaces button:hover:not(.active):not(.visible), */
