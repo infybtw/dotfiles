@@ -146,6 +146,31 @@
   margin-right: 10pt;
 }
 
+#custom-lamzu {
+  color: #a6e3a1;
+  margin-right: 10pt;
+}
+
+#custom-lamzu.warning {
+  color: #f9e2af;
+}
+
+#custom-lamzu.critical {
+  color: #f38ba8;
+}
+
+#custom-lamzu.charging {
+  color: #89b4fa;
+}
+
+#custom-lamzu.stale {
+  opacity: 0.65;
+}
+
+#custom-lamzu.unknown {
+  color: #6c7086;
+}
+
 #custom-color-picker {
   margin-left: 6pt;
   margin-right: 6pt;
