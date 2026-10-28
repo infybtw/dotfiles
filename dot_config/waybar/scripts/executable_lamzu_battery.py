@@ -52,10 +52,10 @@ CHARGING_ICON = "\U000f0084"
 UNKNOWN_ICON = BATTERY_ICONS[0]
 
 STATE_TEXT = {
-    0: "разряжается",
-    1: "заряжается",
-    2: "заряжена",
-    3: "заряжена",
+    0: "discharging",
+    1: "charging",
+    2: "full",
+    3: "full",
 }
 
 
@@ -119,7 +119,7 @@ def query_battery(node):
     try:
         fd = os.open(node, os.O_RDWR | os.O_CLOEXEC)
     except OSError as error:
-        return None, f"нет доступа к {node}: {error.strerror}"
+        return None, f"cannot access {node}: {error.strerror}"
 
     try:
         request = bytearray(REPORT_LENGTH)
@@ -130,7 +130,7 @@ def query_battery(node):
         try:
             fcntl.ioctl(fd, HIDIOCSFEATURE, bytes(request))
         except OSError as error:
-            return None, f"ошибка запроса: {error.strerror}"
+            return None, f"request failed: {error.strerror}"
 
         deadline = time.monotonic() + QUERY_TIMEOUT_SECONDS
         while time.monotonic() < deadline:
@@ -139,7 +139,7 @@ def query_battery(node):
             try:
                 fcntl.ioctl(fd, HIDIOCGFEATURE, response, True)
             except OSError as error:
-                return None, f"ошибка чтения: {error.strerror}"
+                return None, f"read failed: {error.strerror}"
 
             valid_reply = (
                 response[1] == AURORA_REPLY_TAG
@@ -150,7 +150,7 @@ def query_battery(node):
             if valid_reply:
                 return (response[8], response[7]), None
 
-        return None, "мышь не ответила"
+        return None, "mouse did not respond"
     finally:
         os.close(fd)
 
@@ -159,9 +159,9 @@ def read_battery():
     """Return (reading, error, device_name, dongle_present)."""
     devices = find_control_devices()
     if not devices:
-        return None, "донгл LAMZU не найден", None, False
+        return None, "LAMZU dongle not found", None, False
 
-    last_error = "мышь не отвечает"
+    last_error = "mouse is not responding"
     for node, name in devices:
         reading, error = query_battery(node)
         if reading is not None:
@@ -223,26 +223,26 @@ def icon_for(percent, state):
 def age_text(seconds):
     seconds = max(0, int(seconds))
     if seconds < 60:
-        return "только что"
+        return "just now"
     minutes = seconds // 60
     if minutes < 60:
-        return f"{minutes} мин назад"
+        return f"{minutes} min ago"
     hours = minutes // 60
     if hours < 24:
-        return f"{hours} ч назад"
-    return f"{hours // 24} дн назад"
+        return f"{hours} h ago"
+    return f"{hours // 24} d ago"
 
 
 def build_tooltip(percent, state, updated, stale):
     lines = [
         "<b>LAMZU Maya X</b>",
-        f"Заряд: <b>{percent}%</b>",
-        f"Состояние: {STATE_TEXT.get(state, 'неизвестно')}",
+        f"Battery: <b>{percent}%</b>",
+        f"Status: {STATE_TEXT.get(state, 'unknown')}",
     ]
     if stale:
-        lines.append(f"<i>последнее значение, {age_text(time.time() - updated)}</i>")
+        lines.append(f"<i>last known value, {age_text(time.time() - updated)}</i>")
     else:
-        lines.append(f"Обновлено: {time.strftime('%H:%M:%S', time.localtime(updated))}")
+        lines.append(f"Updated: {time.strftime('%H:%M:%S', time.localtime(updated))}")
     return "\r".join(lines)
 
 
@@ -272,7 +272,7 @@ def waybar_payload(percent, state, updated, stale):
 
 
 def unknown_payload(error):
-    tooltip = "<b>LAMZU Maya X</b>\rМышь не отвечает.\rПодвиньте мышь или проверьте донгл."
+    tooltip = "<b>LAMZU Maya X</b>\rMouse is not responding.\rMove the mouse or check the dongle."
     if error:
         tooltip += f"\r<i>{error}</i>"
     return {
@@ -338,14 +338,14 @@ def main():
     if args.notify:
         if reading is not None:
             percent, state = reading
-            message = f"Заряд: {percent}%\nСостояние: {STATE_TEXT.get(state, 'неизвестно')}"
+            message = f"Battery: {percent}%\nStatus: {STATE_TEXT.get(state, 'unknown')}"
         elif cached is not None and dongle_present:
             message = (
-                f"Последнее значение: {cached['percent']}% "
+                f"Last known value: {cached['percent']}% "
                 f"({age_text(time.time() - cached['updated'])})"
             )
         else:
-            message = "Мышь не отвечает. Подвиньте мышь или проверьте донгл."
+            message = "Mouse is not responding. Move the mouse or check the dongle."
         notify("LAMZU Maya X", message)
         return
 
