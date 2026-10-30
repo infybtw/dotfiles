@@ -14,7 +14,6 @@
       "memory",
       "disk",
       "pulseaudio",
-      "custom/lamzu",
       "tray",
       "custom/swaync",
       "custom/power",
@@ -130,13 +129,6 @@
     "disk": {
       "interval": 5,
       "format": "{percentage_free}% ",
-    },
-    "custom/lamzu": {
-      "exec": "/home/infy/.config/waybar/scripts/lamzu_battery.py",
-      "return-type": "json",
-      "interval": 60,
-      "tooltip": true,
-      "on-click": "/home/infy/.config/waybar/scripts/lamzu_battery.py --notify",
     },
   },
 ]
