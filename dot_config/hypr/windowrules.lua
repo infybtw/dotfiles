@@ -26,6 +26,12 @@ hl.window_rule({
 })
 
 hl.window_rule({
+    name = "nautilus-float",
+    float = true,
+    match = { class = "^org\\.gnome\\.Nautilus$" },
+})
+
+hl.window_rule({
     name = "windowrule-5",
     float = true,
     size = "(monitor_w*0.5) (monitor_h*0.5)",
