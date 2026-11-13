@@ -19,9 +19,9 @@ var tooltipForeground = "#cdd6f4"
 var menuBackground = "#222222"
 
 // Nerd Font glyphs, copied from the waybar config.
-var iconWorkspaceActive = ""   // U+F111
-var iconWorkspaceVisible = ""  // U+EBB5
-var iconWorkspaceDefault = ""  // U+F192
+var iconWorkspaceActive = ""   // U+F111 filled circle
+var iconWorkspaceOccupied = "" // U+F192 dot circle, workspace has windows
+var iconWorkspaceEmpty = ""    // U+EBB5 hollow circle, no windows
 
 var iconCpu = ""               // U+F4BC
 var iconMemory = ""             // U+EFC5

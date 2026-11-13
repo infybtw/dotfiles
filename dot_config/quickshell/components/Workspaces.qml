@@ -61,7 +61,7 @@ Row {
         anchors.centerIn: parent
         text: workspaceButton.active
           ? Theme.iconWorkspaceActive
-          : (workspaceButton.onThisMonitor ? Theme.iconWorkspaceVisible : Theme.iconWorkspaceDefault)
+          : (workspaceButton.onThisMonitor ? Theme.iconWorkspaceOccupied : Theme.iconWorkspaceEmpty)
         color: Theme.fg
         font.family: Theme.fontFamily
         font.pixelSize: Theme.fontSize

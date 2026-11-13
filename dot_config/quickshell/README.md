@@ -33,17 +33,13 @@ qs kill        # остановить
 
 ## Автозапуск
 
-В `~/.config/hypr/exec.lua` замените строку
-
-```lua
-hl.exec_cmd("waybar & swaync")
-```
-
-на
+Уже настроен в `~/.config/hypr/exec.lua`:
 
 ```lua
 hl.exec_cmd("qs -n -d")
 hl.exec_cmd("swaync")
+-- hl.exec_cmd("waybar & swaync")
 ```
 
-Строку с waybar можно оставить закомментированной как запасной вариант.
+Строка с Waybar оставлена закомментированной как запасной вариант. Чтобы
+вернуться к Waybar, раскомментируйте её и уберите запуск `qs`.
