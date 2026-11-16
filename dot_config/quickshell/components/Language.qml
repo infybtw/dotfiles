@@ -7,37 +7,31 @@ import "../Theme.js" as Theme
 Item {
   id: root
 
-  property string mainKeyboard: ""
   property string currentLayout: ""
+  property bool hasLiveUpdate: false
 
   implicitWidth: label.implicitWidth
   implicitHeight: 22
 
-  function displayForLayout(layout, index) {
-    if (!layout)
-      return ""
-    const parts = layout.split(",")
-    return displayForCode(parts[index] || parts[0] || "")
-  }
-
-  function displayForCode(code) {
-    const normalized = (code || "").trim().toLowerCase()
-    if (normalized === "ru")
+  function layoutLabel(value) {
+    const normalized = (value || "").trim().toLowerCase()
+    if (normalized === "ru" || normalized.indexOf("russian") !== -1)
       return "RUS"
-    if (normalized === "us" || normalized === "gb")
+    if (normalized === "us" || normalized === "gb" || normalized === "en"
+        || normalized.indexOf("english") !== -1)
       return "ENG"
-    return normalized.toUpperCase()
+    return (value || "").trim().toUpperCase()
   }
 
-  function displayForKeymap(keymap) {
-    const normalized = (keymap || "").trim().toLowerCase()
-    if (normalized.indexOf("russian") !== -1)
-      return "RUS"
-    if (normalized.indexOf("english") !== -1)
-      return "ENG"
-    return (keymap || "").trim().toUpperCase()
+  function applyKeymap(keymap) {
+    const label = layoutLabel(keymap)
+    if (!label || label === "ERROR")
+      return
+    root.currentLayout = label
   }
 
+  // Initial state only. Once a live event arrives it must not overwrite it
+  // with the stale result of this one-shot query.
   Process {
     id: initProcess
 
@@ -45,14 +39,20 @@ Item {
     command: ["hyprctl", "-j", "devices"]
     stdout: StdioCollector {
       onStreamFinished: {
+        if (root.hasLiveUpdate)
+          return
         try {
           const data = JSON.parse(this.text)
           const keyboards = data.keyboards || []
           const main = keyboards.find(keyboard => keyboard.main) || keyboards[0]
           if (!main)
             return
-          root.mainKeyboard = main.name || ""
-          root.currentLayout = root.displayForLayout(main.layout, main.active_layout_index || 0)
+          if (main.active_keymap)
+            root.applyKeymap(main.active_keymap)
+          else {
+            const parts = (main.layout || "").split(",")
+            root.applyKeymap(parts[main.active_layout_index || 0] || parts[0] || "")
+          }
         } catch (error) {
           console.warn("quickshell: failed to read keyboard layout:", error)
         }
@@ -67,15 +67,16 @@ Item {
       if (event.name !== "activelayout")
         return
 
+      // Hyprland sends the name of the device that performed the switch,
+      // which is not necessarily the one flagged "main" in `hyprctl devices`
+      // (e.g. by-tech-gaming-keyboard-1). Filtering by device name would drop
+      // those events, so use the keymap from the event itself.
       const parts = event.data.split(",")
       if (parts.length < 2)
         return
 
-      const keyboardName = parts[0]
-      if (root.mainKeyboard.length > 0 && keyboardName !== root.mainKeyboard)
-        return
-
-      root.currentLayout = root.displayForKeymap(parts.slice(1).join(","))
+      root.applyKeymap(parts.slice(1).join(","))
+      root.hasLiveUpdate = true
     }
   }
 
