@@ -8,6 +8,7 @@ var fontSize = 12
 var fg = "#f2f2f2"
 var red = "#f38ba8"
 var cpuColor = "#fa8787"
+var gpuColor = "#cba6f7"
 var memoryColor = "#fab387"
 var diskColor = "#28c9af"
 var volumeColor = "#74c7ec"
@@ -24,6 +25,7 @@ var iconWorkspaceOccupied = "" // U+F192 dot circle, workspace has windows
 var iconWorkspaceEmpty = ""    // U+EBB5 hollow circle, no windows
 
 var iconCpu = ""               // U+F4BC
+var iconGpu = ""               // U+EBE2 (cod-graph_line)
 var iconMemory = ""             // U+EFC5
 var iconDisk = ""              // U+F0C7
 

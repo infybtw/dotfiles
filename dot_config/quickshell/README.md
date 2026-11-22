@@ -25,6 +25,8 @@ qs kill        # остановить
 - `components/Language.qml` — раскладка клавиатуры (ENG/RUS).
 - `components/CpuStats.qml`, `MemoryStats.qml`, `DiskStats.qml` — системные
   показатели и их подсказки.
+- `components/GpuStats.qml` — загрузка GPU через `nvidia-smi`: проценты
+  в баре, температура, VRAM и потребление в подсказке, клик открывает nvtop.
 - `components/Volume.qml` — громкость PipeWire.
 - `components/Tray.qml` — системный трей.
 - `components/Notifications.qml` — индикатор и переключатель swaync.

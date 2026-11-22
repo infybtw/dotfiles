@@ -57,6 +57,7 @@ PanelWindow {
 
       Language {}
       CpuStats { panelWindow: root }
+      GpuStats { panelWindow: root }
       MemoryStats { panelWindow: root }
       DiskStats { panelWindow: root }
       Volume { panelWindow: root }
