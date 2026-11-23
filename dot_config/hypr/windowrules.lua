@@ -258,3 +258,9 @@ hl.window_rule({
     size = "(monitor_w*0.5) (monitor_h*0.5)",
     match = { class = "^(Throne|throne)$" },
 })
+hl.window_rule({
+    name = "twirchat-float",
+    float = true,
+    size = "(monitor_w*0.3) (monitor_h*0.7)",
+    match = { class = "^(dev.twirchat.app)$" },
+})

@@ -35,7 +35,7 @@ hl.config({
 
 hl.config({
     general = {
-        gaps_in = 4,
+        gaps_in = 2,
         gaps_out = 4,
         border_size = 1,
         col = {
@@ -49,6 +49,14 @@ hl.config({
 
 hl.config({
     decoration = {
+   --  	wobble = {
+   --  		enabled = true,
+			-- mesh = 12,
+   --          stiffness = 200,
+   --          damping = 12,
+   --          mass = 1,
+   --          intensity = 0.2,
+   --  	},
         rounding = 10,
         rounding_power = 2,
         active_opacity = 1.0,
@@ -150,7 +158,7 @@ hl.config({
 
 MAIN_MOD = "SUPER"
 TERMINAL = "ghostty"
-FILE_MANAGER = "nemo"
+FILE_MANAGER = "nautilus"
 BROWSER = "zen-browser"
 MENU = "vicinae vicinae://toggle"
 PROXY = "/home/infy/Throne/Throne"
@@ -159,3 +167,4 @@ dofile(os.getenv("HOME") .. "/.config/hypr/windowrules.lua")
 dofile(os.getenv("HOME") .. "/.config/hypr/env.lua")
 dofile(os.getenv("HOME") .. "/.config/hypr/exec.lua")
 dofile(os.getenv("HOME") .. "/.config/hypr/binds.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/privatewindowrules.lua")
