@@ -10,8 +10,8 @@ hl.bind(MAIN_MOD .. " + V", hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/
 hl.bind(MAIN_MOD .. " + W", hl.dsp.exec_cmd("vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid"))
 -- hl.bind(MAIN_MOD .. " + P", hl.dsp.exec_cmd(PROXY))
 hl.bind(MAIN_MOD .. " + B", hl.dsp.exec_cmd(BROWSER))
--- SUPER + ALT + R: открыть последнюю скопированную ссылку в Brave
-hl.bind(MAIN_MOD .. " + ALT + R", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/open-clip-url"), { description = "Open copied URL in Brave" })
+-- SUPER + ALT + R: open Zen's active tab in Brave (falls back to the clipboard)
+hl.bind(MAIN_MOD .. " + ALT + R", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/open-clip-url"), { description = "Open Zen's current tab in Brave" })
 hl.bind(MAIN_MOD .. " + N", hl.dsp.exec_cmd("swaync-client -t"))
 hl.bind(MAIN_MOD .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("CTRL + SPACE", hl.dsp.exec_cmd("hex dictation toggle"))
