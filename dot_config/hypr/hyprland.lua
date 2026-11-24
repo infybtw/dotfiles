@@ -1,7 +1,19 @@
 -- Migrated from hyprland.conf for Hyprland 0.55+
 -- hyprpaper remains on hyprlang via hyprpaper.conf
 
-hl.monitor({ output = "DP-1", mode = "1920x1080@180", position = "0x0", scale = "1", vrr = 0 })
+hl.monitor({ output = "DP-1", 
+	mode = "1920x1080@180", 
+	position = "0x0", 
+	scale = "1", 
+	vrr = 0,
+	supports_hdr = -1
+ })
+
+hl.config({
+    render = {
+        cm_auto_hdr = 0,
+    },
+})
 hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@75", position = "1920x0", scale = "1" })
 
 hl.workspace_rule({ workspace = "1", monitor = "DP-1", persistent = true, default = true })
